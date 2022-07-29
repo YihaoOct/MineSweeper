@@ -106,22 +106,28 @@ namespace MineSweeper.Tests
             Assert.Equal(2, result[2,1]);
         }
 
-        [Fact]
-        public void EmptyInputReturnsEmptyHints()
-        {
-        }
+        // The following test will not pass, since C# does not support tail recursion
+        // https://github.com/dotnet/csharplang/discussions/2544
 
-        [Fact]
-        public void SingleRowWithEmptyColumnsReturnsSingleRowWithEmptyColumns()
-        {
-        }
+        // [Fact]
+        // public void NoStackOverflow()
+        // {
+        //     var input = new char[10_000, 10_000];
+        //     for (int r = 0; r < 10_000; r++)
+        //     {
+        //         for (int c = 0; c < 10_000; c++)
+        //         {
+        //             input[r, c] = '.';
+        //         }
+        //     }
 
-        [Fact]
-        public void SingleColumnWithEmptyRowsReturnsSingleColumnWithEmptyRows()
-        {
-        }
+        //     input[100, 100] = '*';
+        //     input[100, 101] = '*';
+        //     input[200, 200] = '*';
 
-        // Cell with 1 adjacent mine shows 1 - theory on board-position of mine (corner, edge, middle)
-        // Sweeper behaves correctly with strange board sizes
+        //     var result = minesweeper.CalculateHints(input);
+
+
+        // }
     }
 }
